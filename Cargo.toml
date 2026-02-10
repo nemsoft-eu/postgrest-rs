@@ -1,6 +1,6 @@
 [package]
 name = "postgrest"
-version = "1.6.0"
+version = "1.7.0"
 authors = ["Bobbie Soedirgo <bobbie@soedirgo.dev>"]
 description = "PostgREST client-side library"
 homepage = "https://github.com/supabase/postgrest-rs"
@@ -12,7 +12,8 @@ categories = ["development-tools"]
 edition = "2021"
 
 [dependencies]
-reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+# reqwest 0.13 renamed rustls-tls to rustls, and made query/form features optional
+reqwest = { version = "0.13", default-features = false, features = ["rustls", "query"] }
 
 [dev-dependencies]
 json = "0.12"
